@@ -28,3 +28,34 @@ CREATE EXTENSION vector;
 Use code with caution.
 • Verify installation. Run \dx in psql or SELECT * FROM pg_extension; to confirm vector is active.
 Are you running PostgreSQL 14 directly on Windows, or would you like instructions for setting it up via Docker or WSL instead?
+
+##################################
+postgresql-contrib
+
+Option 1: Native Windows Installation (Recommended)
+
+When you run the standard EDB installer for Windows:
+1. Download the installer from the PostgreSQL Downloads Page and select Windows.
+2. Step through the setup wizard (accepting or customizing the destination directory and port 5432).
+3. The contrib modules and command-line tools are installed by default inside the share/extension and bin directories of your installation path (e.g., C:\Program Files\PostgreSQL\<version>\share\extension).
+
+How to Enable a Contrib Extension in Windows:
+
+Open pgAdmin 4 or the psql command-line tool connected to your database and run the SQL command for the specific extension you need:
+sql
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+-- or any other contrib module like pgcrypto, citext, etc.
+Use code with caution.
+
+Option 2: Windows Subsystem for Linux (WSL2 / Ubuntu)
+
+If you installed Ubuntu or another Linux distribution via WSL2 on Windows 11 and want the Linux-native postgresql-contrib package:
+1. Open your WSL2 terminal.
+2. Update your package lists and install PostgreSQL along with contrib:bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install postgresql postgresql-contrib -y
+Use code with caution.
+3. Start the PostgreSQL service:bash
+sudo service postgresql start
+Use code with caution.
+If you are trying to install a specific contrib module (such as pgcrypto, hstore, or uuid-ossp), let me know which one so I can give you the exact SQL command or setup steps for your version.
