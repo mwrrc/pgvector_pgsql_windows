@@ -7,6 +7,12 @@ You can avoid installing C++ build tools by using community-maintained Windows b
 • Copy the DLL file. Extract the archive and copy vector.dll into your PostgreSQL library folder (typically C:\Program Files\PostgreSQL\14\lib\).
 • Copy the extension files. Copy vector.control and all vector--*.sql files into your PostgreSQL extension folder (typically C:\Program Files\PostgreSQL\14\share\extension\).
 
+
+If you want to avoid installing C++ build tools, you can copy pre-built .dll, .control, and .sql files directly into your PostgreSQL 14 installation folder.
+• Download the release. Visit the community-maintained andreiramani/pgvector_pgsql_windows GitHub releases page and download the .zip archive matching PostgreSQL 14 (such as pgvector-v0.8.x-pg14-win64.zip).
+• Extract the files. Unzip the downloaded archive to view the lib and share folders.
+• Copy into PostgreSQL 14. Copy vector.dll into C:\Program Files\PostgreSQL\14\lib\ and copy vector.control along with all vector--*.sql files into C:\Program Files\PostgreSQL\14\share\extension\.
+
 Option 2: Compile From Source
 
 If you prefer to build directly from the official source code, you will need Microsoft Visual Studio.
